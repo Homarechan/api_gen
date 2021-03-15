@@ -1,4 +1,5 @@
 # api_gen
+
 ## client_generator
 
 server_generator向けの用意したフォルダに対して実行する。
@@ -8,7 +9,7 @@ Typescript+fetchを利用したライブラリが生成される。
 
 ### 開発にあたって
 
-fetchに非対応のブラウザに対応するには[Polyfill](https://github.com/github/fetch)を使って対応する。    
+fetchに非対応のブラウザに対応するには[Polyfill](https://github.com/github/fetch)を使って対応する。
 eslintなどを導入する場合は、自動生成をignoreに追加することを推奨する。
 
 ### モックサーバ
@@ -17,6 +18,7 @@ server_generatorではモックサーバをサポートしています。モッ�
 モックサーバへのリクエストは通常のclient_generatorが生成したクライアントから行える。ただし、いくつかのオプションが存在しており、これらは `Api-Gen-Option` ヘッダーでJSONエンコードされモックサーバへ送信される。  
 オプションの指定方法はclient_generatorの生成したコードのオプション引数にて `'mock_option'` をキーとしたオブジェクトを渡す必要がある。  
 オプションの詳細は以下のとおり。
+
 ```javascript
 {
     wait_ms: 10,           // モックサーバからの応答を指定したミリ秒遅延させる。 (例では10ms)
@@ -29,10 +31,11 @@ server_generatorではモックサーバをサポートしています。モッ�
 [templates](../templates) を利用した場合、[templates/frontend](../templates/frontend)にて `make generate`を実行することで簡単に生成できる。
 
 生成されるファイルは以下のファイルである。
+
 - api/
-    - api_client.ts
-    - classes/
-        - types.ts
+  - api_client.ts
+  - classes/
+    - types.ts
 
 以下が実装例です。
 
@@ -103,6 +106,8 @@ import { APIClient, MockOption } from "./api/api_client";
 ```
 
 ### FAQ
+
 #### Cookieを送信したい
+
 - `{credentials: "include"}` をfetch APIのオプションに設定
-    - FYI: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+  - FYI: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>
